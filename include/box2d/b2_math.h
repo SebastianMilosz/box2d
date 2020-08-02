@@ -24,12 +24,12 @@
 #define B2_MATH_H
 
 #include "b2_settings.h"
-#include <math.h>
+#include <cmath>
 
 /// This function is used to ensure that a floating point number is not a NaN or infinity.
 inline bool b2IsValid(float x)
 {
-	return isfinite(x);
+	return std::isfinite(x);
 }
 
 #define	b2Sqrt(x)	sqrtf(x)
@@ -52,7 +52,7 @@ struct b2Vec2
 
 	/// Negate this vector.
 	b2Vec2 operator -() const { b2Vec2 v; v.Set(-x, -y); return v; }
-	
+
 	/// Read from and indexed element.
 	float operator () (int32 i) const
 	{
@@ -70,7 +70,7 @@ struct b2Vec2
 	{
 		x += v.x; y += v.y;
 	}
-	
+
 	/// Subtract a vector from this vector.
 	void operator -= (const b2Vec2& v)
 	{
